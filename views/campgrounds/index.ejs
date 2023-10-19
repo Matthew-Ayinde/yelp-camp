@@ -10,10 +10,11 @@
 <div class="card mb-3">
     <div class="row">
         <div class="col-md-4">
-             <% if(campground.images.length) { %>
-            <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+             <% if(campground.images) { %>
+            <img class="img-fluid" alt="no img" src="https://res.cloudinary.com/duvwlkwhp/image/upload/v1697640708/YelpCamp/scott-goodwill-y8Ngwq34_Ak-unsplash_h9qxmk.jpg">
+            <!-- <img class="img-fluid" alt="no img" src="<%=campground.images[0].url%>"> -->
             <% } else { %>
-            <img class="img-fluid" alt="" src="https://res.cloudinary.com/duvwlkwhp/image/upload/v1679009492/YelpCamp/pzg4itr25dsql3fv6f62.jpg">
+            <img class="img-fluid" alt="" src="https://res.cloudinary.com/duvwlkwhp/image/upload/v1697640708/YelpCamp/scott-goodwill-y8Ngwq34_Ak-unsplash_h9qxmk.jpg">
             <% } %>
         </div>
         <div class="col-md-8">

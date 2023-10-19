@@ -21,7 +21,15 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require('connect-mongo')(session)
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+const dbUrl = 'mongodb+srv://matthew:matthew03@cluster0.w3sshbp.mongodb.net/?retryWrites=true&w=majority';
+
+// const dbUrl = 'mongodb://localhost:27017/yelp-camp';
+
+//mongorestore --uri mongodb+srv://matthew:matthew03@cluster0.w3sshbp.mongodb.net 
+//mongodump --uri mongodb+srv://matthew:matthew03@cluster0.w3sshbp.mongodb.net/yelp-camp
+
+
+
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
