@@ -41,10 +41,40 @@
             <% if(currentUser && campground.author.equals(currentUser._id)) { %>
             <div class="card-body">
                 <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
-                <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                <!-- <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
-                </form>
+                </form> -->
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Delete
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Campground</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-danger">
+                        Are you sure?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
             </div>
+
+            <!-- Button trigger modal -->
+
             <% } %>
             <div class="card-footer text-muted">
                 2 days ago
@@ -52,6 +82,7 @@
         </div>
 
     </div>
+
     <div class="col-sm-6">
         <div id='map'></div>
         <% if(currentUser) { %>
@@ -82,6 +113,9 @@
             <button class="btn btn-success">Submit</button>
         </form>
         <% } %>
+        <%  if(campground.reviews) { %>
+           <h1>Reviews</h1> 
+       <% } %>
         <% for(let review of campground.reviews) { %>
         <div class="card mb-3 ">
             <div class="card-body">

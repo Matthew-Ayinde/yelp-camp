@@ -3,9 +3,9 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 container: 'cluster-map',
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/light-v11',
-center: [-103.5917, 40.6699],
-zoom: 3
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [3.406448, 6.465422],
+zoom: 7
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -38,11 +38,11 @@ paint: {
 'circle-color': [
 'step',
 ['get', 'point_count'],
-'#00BCD4',
+'green',
 10,
-'#2196F3',
+'yellow',
 30,
-'#3F51B5'
+'red'
 ],
 'circle-radius': [
 'step',
@@ -74,7 +74,7 @@ type: 'circle',
 source: 'campgrounds',
 filter: ['!', ['has', 'point_count']],
 paint: {
-'circle-color': '#11b4da',
+'circle-color': 'greenyellow',
 'circle-radius': 4,
 'circle-stroke-width': 1,
 'circle-stroke-color': '#fff'
